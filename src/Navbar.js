@@ -11,19 +11,20 @@ const Navbarr=styled.div`
     margin-top:0px;
     background-color:white;
     z-index: 2;
+    overflow:hidden;
 `
 const Logo=styled.div`
     position:relative;
     font-weight:700;
-    left:4%;
+    left:5%;
 `
 const Time=styled.div`
     position:relative;
-    left:27%;
+    left:32%;
 `
 const Battery=styled.div`
     position:relative;
-    left:58%;
+    left:62%;
 `
 
 export default class Navbar extends React.Component{

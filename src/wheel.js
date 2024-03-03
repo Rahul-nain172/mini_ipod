@@ -5,8 +5,10 @@ import { FaForward } from "react-icons/fa";
 import { FaBackward } from "react-icons/fa";
 
 const Wheelbox=styled.div`
+    transition: all 2s linear;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
+    background-color:${props=>props.themeIndex==0?"lightgrey ":"black"};
     height: 50%;
     width: 100%;
     display: flex;
@@ -15,7 +17,7 @@ const Wheelbox=styled.div`
     align-items: center;
     -webkit-box-reflect: below -5px linear-gradient(transparent, transparent, #0004);
     filter: brightness(100%);
-    z-index: 0;
+    z-index: 5;
 `;
 const Wheeel=styled.div`
     position:relative;
@@ -76,14 +78,58 @@ class Wheel extends React.Component{
     render()
     {
         return(
-            <Wheelbox>
-                <Wheeel>
-                    <Menubtn><div>Menu</div></Menubtn>
-                    <Nextbtn className="buttons" id="next"><FaForward/></Nextbtn>
-                    <Playbtn className="buttons" id="play"><HiMiniPlayPause/></Playbtn>
-                    <Backbtn className="buttons" id="back"><FaBackward/></Backbtn>               
+            <Wheelbox themeIndex={this.props.theme.themeIndex} >
+                <Wheeel 
+                draggable="false"
+                ref={this.props.controllerRef}				
+                    onClick={(e) => {
+					e.stopPropagation();
+					return;
+				}}
+				onMouseDown={(e) => {
+                    e.preventDefault();
+					e.stopPropagation();
+					this.props.rotate(this.props.menu);
+					return;
+				}}>
+                    <Menubtn
+                        draggable="false"
+                        onClick={(e)=>{
+                            e.stopPropagation();
+                            this.props.tapup(this.props.menu);
+                        }}>
+                        <div>
+                            Menu
+                        </div>
+                    </Menubtn>
+                    <Nextbtn
+                        draggable="false"
+                        onClick={(e)=>{
+                            e.stopPropagation();
+                            this.props.prevnext(true);
+                        }}
+                        className="buttons" id="next"><FaForward/>
+                    </Nextbtn>
+                    <Playbtn                         draggable="false"
+                        onClick={(e)=>{
+                            e.stopPropagation();
+                            this.props.tap(this.props.menu);
+                        }} className="buttons" id="play"><HiMiniPlayPause/></Playbtn>
+                    <Backbtn 
+                        draggable="false"
+                        onClick={(e)=>{
+                            e.stopPropagation();
+                            this.props.prevnext(false);
+                        }} className="buttons" id="back"><FaBackward/>
+                    </Backbtn>               
                 </Wheeel>
-                <Okbtn className="okbtn"></Okbtn>
+                <Okbtn 	
+                onClick={(e) => {
+						e.stopPropagation();
+						this.props.tap(this.props.menu);
+						return;
+					}}
+                ></Okbtn>
             </Wheelbox>
         )
     }
