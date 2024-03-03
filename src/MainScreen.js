@@ -66,8 +66,8 @@ export default class MainScreen extends React.Component{
     
                {islockscreen&&<div style={{position:"relative", top:"42%" ,width:"100%",display:"flex",justifyContent:"center"}}>
                 Press Ok to unlock!</div>}
-                {!islockscreen&&menu.SongVisible=="no"&&<Menu menu={menu} />}
-                {!islockscreen&&menu.SongVisible=="yes"&&<Music>
+                {!islockscreen&&menu.SongVisible==="no"&&<Menu menu={menu} />}
+                {!islockscreen&&menu.SongVisible==="yes"&&<Music>
                     <Song src={songsList.thumbnails[songsList.songIndex]}>
 
                     </Song>
