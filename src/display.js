@@ -26,7 +26,7 @@ export default class Display extends React.Component{
         const screen=this.props.screen;
         const songsList=this.props.songsList;
         const themeIndex=this.props.theme.themeIndex;
-        let shownav=!(menu.SongVisible=="yes"||menu.coverflowVisible=="yes"||menu.gamesVisible=="yes"||menu.albumsVisible=="yes"||menu.artistVisible=="yes");
+        let shownav=!(menu.SongVisible==="yes"||menu.coverflowVisible==="yes"||menu.gamesVisible==="yes"||menu.albumsVisible==="yes"||menu.artistVisible==="yes");
         return(
             <>
             <Displayer themeIndex={themeIndex}>

@@ -25,6 +25,8 @@ const Optionss=styled.div`
                 return "30%";
             case "settingsmenu":
                 return "30%";
+            default:
+                return "30%";
         }
     }};
     position:relative;
@@ -55,53 +57,45 @@ export default class Menu extends React.Component{
 			optionsIndex,
 			musicIndex,
 			settingsIndex,
-			SongVisible,
 			menuVisible,
 			musicVisible,
-            gamesVisible,
-			artistVisible,
-			albumsVisible,
 			settingsVisible,
-			wallpaperchange,
-			coverflowVisible,
-			pageRender,
-			home,
         } = menu;
         return(
             <>
                 
-                {menuVisible=="yes"&&<Menuu>
+                {menuVisible==="yes"&&<Menuu>
                 <div  style={{textShadow: "lightgray 1px 2px 0px"}}>MainMenu</div>
                 {options.map((opt, ind) => (
                     <Optionss key={ind} ind={optionsIndex} ind2={ind} type={"mainmenu"}>
                         <OpName>{Object.keys(opt)[0]}</OpName>  
-                        {optionsIndex==ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}                  
+                        {optionsIndex===ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}                  
                     </Optionss>
                 ))}
                 </Menuu>}
 
                     
                 {
-                    musicVisible=="yes"&&<Menuu>
+                    musicVisible==="yes"&&<Menuu>
                     <div>Music</div>
                     {
                         options[optionsIndex].Music.map((opt,ind)=>(
                             <Optionss key={ind} ind={musicIndex} ind2={ind} type={"musicmenu"}>
                                 <OpName>{opt}</OpName>
-                                {musicIndex==ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}
+                                {musicIndex===ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}
                             </Optionss>
                         ))
                     }
                     </Menuu>
                 }
                 {
-                    settingsVisible=="yes"&&<Menuu>
+                    settingsVisible==="yes"&&<Menuu>
                     <div>Settings</div>
                     {
                         options[optionsIndex].Settings.map((opt,ind)=>(
                             <Optionss key={ind} ind={settingsIndex} ind2={ind} type={"settingsmenu"}>
                                 <OpName>{opt}</OpName>
-                                {settingsIndex==ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}
+                                {settingsIndex===ind&&<Imgstyle src="https://cdn-icons-png.flaticon.com/512/81/81068.png"></Imgstyle>}
                             </Optionss>
                         ))
                     }

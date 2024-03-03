@@ -8,7 +8,7 @@ const Wheelbox=styled.div`
     transition: all 2s linear;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
-    background-color:${props=>props.themeIndex==0?"lightgrey ":"black"};
+    background-color:${props=>props.themeIndex===0?"lightgrey ":"black"};
     height: 50%;
     width: 100%;
     display: flex;

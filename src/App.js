@@ -129,7 +129,7 @@ class App extends React.Component{
 	
 				menu.optionsIndex = optionsIndex;
 			}
-			if(menu.musicVisible=="yes")
+			if(menu.musicVisible==="yes")
 			{
 				const angle = event.detail.angle;
 				let musicIndex = 0;
@@ -151,7 +151,7 @@ class App extends React.Component{
 	
 				menu.musicIndex = musicIndex;
 			}
-			if(menu.settingsVisible=="yes")
+			if(menu.settingsVisible==="yes")
 			{
 				const angle = event.detail.angle;
 				let settingsIndex = 0;
@@ -196,7 +196,7 @@ class App extends React.Component{
 	}
 	//pressing "middle (ok) button functionality"
 	play_prev_next=(next)=>{
-		if(this.state.menu.SongVisible=="yes"){
+		if(this.state.menu.SongVisible==="yes"){
 		let updatedSongsList=this.state.songsList;
 		updatedSongsList.songs[updatedSongsList.songIndex].pause();
 		updatedSongsList.isPlaying=true;
@@ -214,7 +214,7 @@ class App extends React.Component{
 		this.setState({screen:prevscreen});
 	}
 	tap=(menu)=>{
-		if(this.state.islockscreen==true)
+		if(this.state.islockscreen===true)
 		{
 			this.setState({islockscreen:false});
 			return;
@@ -223,9 +223,9 @@ class App extends React.Component{
 		{
 			return;
 		}
-		if(menu.optionsIndex==0)
+		if(menu.optionsIndex===0)
 		{
-			if(menu.musicVisible=="no"&&menu.SongVisible=="no") //music menu wasn't visible
+			if(menu.musicVisible==="no"&&menu.SongVisible==="no") //music menu wasn't visible
 			{
 				menu.musicIndex=0;
 				menu.menuVisible="no";
@@ -235,10 +235,10 @@ class App extends React.Component{
 			}
 			else //inside the music menu
 			{
-				if(menu.musicIndex==0)
+				if(menu.musicIndex===0)
 				{
 					let forceplay=false;
-					if(menu.SongVisible=="no")
+					if(menu.SongVisible==="no")
 					{
 						menu.SongVisible="yes"
 						menu.musicVisible="no";
@@ -247,9 +247,9 @@ class App extends React.Component{
 					this.playpause(menu,forceplay);
 					return;
 				}
-				else if(menu.musicIndex==1)
+				else if(menu.musicIndex===1)
 				{
-					if(menu.artistVisible=="no")
+					if(menu.artistVisible==="no")
 					{
 						menu.artistVisible="yes";
 						menu.musicVisible="no";
@@ -262,7 +262,7 @@ class App extends React.Component{
 				}
 				else
 				{
-					if(menu.albumsVisible=="no")
+					if(menu.albumsVisible==="no")
 					{
 						menu.albumsVisible="yes";
 						menu.musicVisible="no";
@@ -275,9 +275,9 @@ class App extends React.Component{
 				}
 			}
 		}
-		else if(menu.optionsIndex==1)
+		else if(menu.optionsIndex===1)
 		{
-			if(menu.gamesVisible=="no")
+			if(menu.gamesVisible==="no")
 			{
 				menu.gamesVisible="yes";
 				menu.menuVisible="no";
@@ -288,9 +288,9 @@ class App extends React.Component{
 				return;
 			}
 		}
-		else if(menu.optionsIndex==2)
+		else if(menu.optionsIndex===2)
 		{
-			if(menu.coverflowVisible=="no")
+			if(menu.coverflowVisible==="no")
 			{
 				menu.coverflowVisible="yes";
 				menu.menuVisible="no";
@@ -301,9 +301,9 @@ class App extends React.Component{
 				return;
 			}
 		}
-		else if(menu.optionsIndex==3)
+		else if(menu.optionsIndex===3)
 		{
-			if(menu.settingsVisible=="no"&&menu.wallpaperchange=="no"&&menu.themechange=="no")
+			if(menu.settingsVisible==="no"&&menu.wallpaperchange==="no"&&menu.themechange==="no")
 			{
 				menu.menuVisible="no";
 				menu.settingsVisible="yes";
@@ -311,9 +311,9 @@ class App extends React.Component{
 				return;
 			}
 			else{
-				if(menu.settingsIndex==0)
+				if(menu.settingsIndex===0)
 				{
-					if(menu.wallpaperchange=="no")
+					if(menu.wallpaperchange==="no")
 					{
 						menu.settingsVisible="no";
 						menu.wallpaperchange="yes";
@@ -323,7 +323,7 @@ class App extends React.Component{
 						this.changewallpaper()
 					}
 				}
-				else if(menu.settingsIndex==1)
+				else if(menu.settingsIndex===1)
 				{
 					alert("This functionality will be there in the next version release!");
 					return;
@@ -354,21 +354,21 @@ class App extends React.Component{
 	}
 
 	tapup=(menu)=>{
-		if(this.state.islockscreen==true)
+		if(this.state.islockscreen===true)
 		{
 			return;
 		}
-		if(menu.SongVisible=="yes")
+		if(menu.SongVisible==="yes")
 		{
 			menu.musicVisible="yes";
 			menu.SongVisible="no";
 		}
-		else if(menu.musicVisible=="yes")
+		else if(menu.musicVisible==="yes")
 		{
 			menu.menuVisible="yes";
 			menu.musicVisible="no";
 		}
-		else if(menu.artistVisible=="yes"||menu.albumsVisible=="yes")
+		else if(menu.artistVisible==="yes"||menu.albumsVisible==="yes")
 		{
 			menu.artistVisible="no";
 			menu.musicVisible="yes";
@@ -378,18 +378,18 @@ class App extends React.Component{
 			this.setState({menu:menu,screen:dup});
 			return;
 		}
-		else if(menu.wallpaperchange=="yes"||menu.themechange=="yes")
+		else if(menu.wallpaperchange==="yes"||menu.themechange==="yes")
 		{
 			menu.wallpaperchange="no";
 			menu.themechange="no"
 			menu.settingsVisible="yes";
 		}
-		else if(menu.settingsVisible=="yes")
+		else if(menu.settingsVisible==="yes")
 		{
 			menu.settingsVisible="no";
 			menu.menuVisible="yes";
 		}
-		else if(menu.coverflowVisible=="yes"||menu.gamesVisible=="yes")
+		else if(menu.coverflowVisible==="yes"||menu.gamesVisible==="yes")
 		{
 			let dup=this.state.screen;
 			dup.wallpaperIndex=dup.lastIndex;
@@ -399,7 +399,7 @@ class App extends React.Component{
 			this.setState({menu:menu,screen:dup});
 			return;
 		}
-		else if(menu.menuVisible=="no")
+		else if(menu.menuVisible==="no")
 		{
 			menu.menuVisible="yes";
 			menu.home=false;
